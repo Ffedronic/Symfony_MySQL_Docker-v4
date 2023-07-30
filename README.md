@@ -1,7 +1,7 @@
 Symfony MySQL Docker Project
 ============================
 
-This project provide a dockerized environment for Symfony 4.4 with MySQL 8.0.19.
+This project provide a dockerized environment for Symfony 6.1 with MySQL 8.0.19.
 
 # Requirements
 
@@ -29,7 +29,7 @@ Installation steps:
 1. Clone this repository
 2. Go to the directory `cd Symfony_MySQL_Docker-v4`
 3. Run `docker-compose up -d`
-4. Run `docker exec -it  www_docker_symfony bash` to enter in the container *www_docker_symfony*
+4. Run `docker exec -it  www_docker_symfony bash` to enter in the container *www_symfony*
 5. Run `composer install`
 
 ## Usage
