@@ -39,3 +39,10 @@ You can now access with your browser to:
 - [your Symfony web application](http://localhost:8741).
 - [phpmyadmin](http://localhost:8080).
 - [mail](http://localhost:8081).
+
+## Stop the system
+
+```bash
+docker stop {phpmyadmin_symfony,www_symfony,maildev_symfony,db_symfony}
+```
+
