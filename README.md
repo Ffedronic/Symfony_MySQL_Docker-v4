@@ -30,7 +30,7 @@ Installation steps:
 2. Go to the directory `cd Symfony_MySQL_Docker-v4`
 3. Run `docker-compose up -d`
 4. Run `docker exec -it  www_symfony bash` to enter in the container *www_symfony*
-5. Run `composer install`
+5. Run `cd /var/www/html; composer install`
 
 ## Usage
 
