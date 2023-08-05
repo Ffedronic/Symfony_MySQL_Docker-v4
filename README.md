@@ -1,9 +1,8 @@
-Symfony MySQL Docker Project
-============================
+# Symfony MySQL Docker Project
 
 This project provide a dockerized environment for Symfony 6.1 with MySQL 8.0.19.
 
-# Requirements
+## Requirements
 
 ## Docker
 
@@ -45,4 +44,3 @@ You can now access with your browser to:
 ```bash
 docker stop {phpmyadmin_symfony,www_symfony,maildev_symfony,db_symfony}
 ```
-
