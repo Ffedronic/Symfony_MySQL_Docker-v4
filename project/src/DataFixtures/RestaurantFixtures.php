@@ -23,7 +23,8 @@ class RestaurantFixtures extends Fixture
             ->setOpeningHour($openingHour)
             ->setClosureHour($closureHour)
             ->setIntervalTimeService($setIntervalService)
-            ->setMaxGuestsPerIntervalTimeService(9);
+            ->setMaxGuests(10)
+            ->setMaxGuestsPerIntervalTimeService(10);
         
         $manager->persist($restaurant);
         $manager->flush();
