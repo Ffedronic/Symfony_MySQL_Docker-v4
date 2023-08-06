@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReservationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -23,12 +24,14 @@ class Reservation
     private ?Restaurant $Restaurant = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\Range(min:'today')]
     private ?\DateTimeInterface $Date = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $Time = null;
 
     #[ORM\Column]
+    #[Assert\LessThanOrEqual(10)]
     private ?int $Guests = null;
 
     #[ORM\Column]

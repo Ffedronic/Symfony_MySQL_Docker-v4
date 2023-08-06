@@ -6,6 +6,7 @@ use App\Repository\CustomerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CustomerRepository::class)]
 class Customer
@@ -19,9 +20,11 @@ class Customer
     private ?string $Name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Unique()]
     private ?string $Email = null;
 
     #[ORM\Column(length: 15)]
+    #[Assert\Unique()]
     private ?string $Phone = null;
 
     #[ORM\OneToMany(mappedBy: 'Customer_Id', targetEntity: Reservation::class, orphanRemoval: true)]
