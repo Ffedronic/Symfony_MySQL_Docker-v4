@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: RestaurantRepository::class)]
 class Restaurant
@@ -17,12 +18,15 @@ class Restaurant
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Unique()]
     private ?string $Name = null;
 
     #[ORM\Column(length: 15)]
+    #[Assert\Unique()]
     private ?string $Phone = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Unique()]
     private ?string $Email = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
@@ -35,10 +39,15 @@ class Restaurant
     private ?\DateTimeInterface $Interval_Time_Service = null;
 
     #[ORM\Column]
+    private ?int $Max_Guests = null;
+    
+    #[ORM\Column]
     private ?int $Max_Guests_Per_Interval_Time_Service = null;
 
     #[ORM\OneToMany(mappedBy: 'Restaurant_Id', targetEntity: Reservation::class, orphanRemoval: true)]
     private Collection $reservations;
+
+   
 
     public function __construct()
     {
@@ -160,6 +169,18 @@ class Restaurant
                 $reservation->setRestaurantId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMaxGuests(): ?int
+    {
+        return $this->Max_Guests;
+    }
+
+    public function setMaxGuests(int $Max_Guests): static
+    {
+        $this->Max_Guests = $Max_Guests;
 
         return $this;
     }
