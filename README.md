@@ -1,6 +1,8 @@
 # Symfony MySQL Docker Project
 
 This project provide a dockerized environment for Symfony 6.1 with MySQL 8.0.19.
+This project contains a reservation application example. It checks the conformity of input data, informs the customer about the availability of the reservation, and prompts the customer to confirm their booking through a final form.
+This project is the culmination of an exercise and is not intended for commercial or production use. We are not responsible for any incidents you may encounter if you use it for commercial or production purposes.
 
 ## Requirements
 
