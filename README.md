@@ -30,7 +30,8 @@ Installation steps:
 3. Run `docker-compose up -d`
 4. Run `docker exec -it  www_symfony bash` to enter in the container *www_symfony*
 5. Run `composer install`
-6. To create the database, in order, run:
+6. Run `npm install`
+7. To create the database, in order, run:
 `php bin/console doctrine:database:create`
 `php bin/console make:migration`
 `php bin/console doctrine:migrations:migrate`
