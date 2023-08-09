@@ -38,6 +38,7 @@ Installation steps:
 `php bin/console make:migration`
 `php bin/console doctrine:migrations:migrate`
 `php bin/console doctrine:fixtures:load`
+8. Run `npm run watch` to compile the code and thereafter access the application following the links below.
 
 ## Usage
 
