@@ -29,4 +29,5 @@ class RestaurantFixtures extends Fixture
         $manager->persist($restaurant);
         $manager->flush();
     }
+
 }
