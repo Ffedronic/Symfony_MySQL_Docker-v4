@@ -1,20 +1,19 @@
 import React from "react";
+import NavBar from "../NavBar/NavBar";
+import Hero from "../Hero/Hero";
+import Footer from "../Footer/Footer";
 
 function Layout(props) {
   return (
     <>
       <header>
-        <nav className="navbar navbar-light bg-light">
-          <h1 className="navbar-brand mb-0">Reservation a App</h1>
-        </nav>
+        <NavBar />
       </header>
-      <main className="">
-        <h2 className="">
-          Make easier your reservation through our application
-        </h2>
-        {props.children}
-      </main>
-      <footer className="">@Reservation app - 2023</footer>
+      <Hero />
+      <main className="container">{props.children}</main>
+      <footer className="py-4 my-5 bg-light">
+        <Footer />
+      </footer>
     </>
   );
 }
