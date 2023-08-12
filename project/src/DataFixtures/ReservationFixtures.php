@@ -10,14 +10,11 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
-use Psr\Log\LoggerInterface;
 
 class ReservationFixtures extends Fixture implements DependentFixtureInterface
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
-        private LoggerInterface $loggerInterface
-
     ) {
     }
 
