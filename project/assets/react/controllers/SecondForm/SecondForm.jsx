@@ -1,59 +1,59 @@
-import React, { Fragment } from "react";
+import React from "react";
 function SecondForm() {
   return (
-    <Fragment>
-      <p className="">
+    <article className="">
+      <h3 className="text-center">
         Fill your name, your email and your phone number to validate your
         reservation.
-      </p>
-      <article className="">
-        <form>
-          <div className="row">
-            <div className="col-12">
-              <div className="form-group">
-                <label htmlFor="namePicker">Name</label>
-                <input
-                  required
-                  type="text"
-                  name="namePicker"
-                  id="namePicker"
-                  className="form-control"
-                />
-              </div>
-            </div>
-            <div className="col-12">
-              <div className="form-group">
-                <label htmlFor="emailPicker">Email</label>
-                <input
-                  required
-                  className=" form-control"
-                  type="email"
-                  name="emailPicker"
-                  id="emailPicker"
-                />
-              </div>
+      </h3>
+      <form>
+        <div className="row mb-md-3">
+          <div className="col-12 col-md-6">
+            <div className="form-group mb-md-2">
+              <label htmlFor="namePicker" className=" mb-md-1">Name</label>
+              <input
+                required
+                type="text"
+                name="namePicker"
+                id="namePicker"
+                className="form-control"
+              />
             </div>
           </div>
-          <div className="row">
-            <div className="col-12">
-              <div className="form-group">
-                <label htmlFor="telPicker">Phone number</label>
-                <input
-                  required
-                  className=" form-control"
-                  type="tel"
-                  name="telPicker"
-                  id="telPicker"
-                />
-              </div>
+          <div className="col-12 col-md-6">
+            <div className="form-group mb-md-2">
+              <label htmlFor="emailPicker" className=" mb-md-1">Email</label>
+              <input
+                required
+                className=" form-control"
+                type="email"
+                name="emailPicker"
+                id="emailPicker"
+              />
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form>
-      </article>
-    </Fragment>
+        </div>
+        <div className="row mb-md-3">
+          <div className="col-12 col-md-6">
+            <div className="form-group mb-md-2">
+              <label htmlFor="telPicker" className=" mb-md-1">Phone number</label>
+              <input
+                required
+                placeholder="ex:07788545"
+                pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
+                className=" form-control"
+                type="tel"
+                name="telPicker"
+                id="telPicker"
+              />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </article>
   );
 }
 
