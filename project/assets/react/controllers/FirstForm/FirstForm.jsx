@@ -3,9 +3,22 @@ import DatePicker from "react-datepicker";
 
 function FirstForm() {
   const [date, setDate] = useState(new Date());
+  const endDisabledDateRanges =  new Date().setDate(new Date().getDate() - 1)
 
   const timeRef = useRef();
   const guestsRef = useRef();
+
+  const events = [
+    {
+        start: new Date("1900-01-01"),
+        end: endDisabledDateRanges
+    },
+];  
+
+const disabledDateRanges = events.map(range => ({
+    start: new Date(range.start),
+    end: new Date(range.end)
+}));
 
   function onSubmitHandler(event) {
     event.preventDefault();
@@ -17,7 +30,7 @@ function FirstForm() {
   return (
     <Fragment>
       <article>
-        <h3 className="text-center fw">
+        <h3 className="text-center">
           Fill your date, the hour and the number of guests you want.
         </h3>
         <form onSubmit={onSubmitHandler}>
@@ -29,32 +42,32 @@ function FirstForm() {
                 </label>
                 <DatePicker
                   id="datePicker"
-                  className="form-control w-100"
+                  className="form-control .w-fullwidth"
                   selected={date}
                   onChange={(date) => setDate(date)}
+                  excludeDateIntervals={disabledDateRanges}
                   required
-                  showIcon
-                  isClearable
-                  closeOnScroll={true}
                   dateFormat={"dd/MM/yyyy"}
+                  onCalendarClose={()=>(disabledDateRanges[0].end = endDisabledDateRanges)}
                 />
               </div>
             </div>
             <div className="col-12 col-md-6">
               <div className="form-group mb-md-2">
                 <label htmlFor="timePicker" className=" mb-md-1">
-                  Time
+                  Time: between 12:00 and 14:00
                 </label>
-                <select
-                  class="form-control"
+                <input
+                type="time"
+                  className="form-control"
                   id="timePicker"
                   required
                   ref={timeRef}
-                >
-                  <option value={"12:00:00"}>12:00</option>
-                  <option value={"13:00:00"}>13:00</option>
-                  <option value={"14:00:00"}>14:00</option>
-                </select>
+                  min={"12:00"}
+                  max={"14:00"}
+                />
+                 
+            
               </div>
             </div>
           </div>
@@ -70,14 +83,14 @@ function FirstForm() {
                   type="number"
                   name="guests"
                   id="guests"
-                  min={0}
+                  min={1}
                   max={9}
                   className=" form-control"
                 />
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Verify
           </button>
         </form>
